@@ -4,4 +4,4 @@ Bienvenue sur le projet collaboratif de la formation ADRAR. Ce projet a pour obj
 
 ## Accès au site
 
-[CLIQUER ICI](https://keketiger.github.io/ADRAR_CoWorking/)
+<a href="https://keketiger.github.io/ADRAR_CoWorking/" target="_blank">CLIQUER ICI</a>
