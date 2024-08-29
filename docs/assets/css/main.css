@@ -1,5 +1,21 @@
 :root {
     --color-white: #fffbf7;
+    --color-dark: #333;
+    --color-light: #f4f4f4;
+    --color-gray: #ddd;
+    --color-dark-gray: #6e6e6e;
+    --color-light-gray: lightgray;
+    --font-size-small: 12px;
+    --font-size-medium: 14px;
+    --font-size-large: 16px;
+    --font-size-xlarge: 18px;
+}
+
+body,
+.menu-btn,
+.submenu button,
+.input-container input {
+    font-family: Inter, sans-serif;
 }
 
 body {
@@ -10,17 +26,20 @@ body {
     min-height: 100vh;
 }
 
-body,
-.menu-btn,
-.submenu button {
-    font-family: Inter, sans-serif;
+header, footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    text-align: center;
+    padding: 10px 0;
 }
 
 header {
-    background-color: #333;
-    color: var(--color-white);
-    padding: 10px 0;
-    text-align: center;
+    padding-bottom: 10px;
+}
+
+footer {
+    padding-top: 10px;
+    font-size: var(--font-size-medium);
 }
 
 .navbar {
@@ -42,7 +61,7 @@ header {
 
 .sidebar {
     width: 15%;
-    background-color: #f4f4f4;
+    background-color: var(--color-light);
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -52,23 +71,8 @@ header {
 .menu {
     list-style: none;
     padding: 0;
+    margin: 0;
     flex: 1;
-    margin-block-start: 0;
-}
-
-.menu-btn[data-active='true']::before,
-.menu-btn:hover::before {
-    content: "";
-    position: absolute;
-    width: 3px;
-    height: 30px;
-    left: 15px;
-    background-color: #333;
-}
-
-.menu-btn[data-active='true'] {
-    background: linear-gradient(90deg, rgb(51 51 51) 0%, rgba(255, 255, 255, 0) 100%);
-    color: var(--color-white);
 }
 
 .menu-btn {
@@ -77,14 +81,31 @@ header {
     padding: 10px;
     width: 100%;
     text-align: left;
-    font-size: 16px;
+    font-size: var(--font-size-medium);
     cursor: pointer;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .menu-btn i {
     margin-right: 10px;
+}
+
+.menu-btn[data-active='true'],
+.menu-btn:hover {
+    background: linear-gradient(90deg, var(--color-dark) 0%, rgba(255, 255, 255, 0) 100%);
+    color: var(--color-white);
+}
+
+.menu-btn[data-active='true']::before,
+.menu-btn:hover::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 30px;
+    left: -5px;
+    background-color: var(--color-dark);
 }
 
 .submenu {
@@ -101,18 +122,17 @@ header {
     background: none;
     border: none;
     cursor: pointer;
-    color: #333;
-    font-size: 14px;
+    color: var(--color-dark);
+    font-size: var(--font-size-small);
 }
 
 #content {
     flex: 1;
     padding: 20px;
     background-color: #8f8c7b;
-    min-height: 100vh;
-    box-sizing: border-box;
     color: var(--color-white);
-    opacity: 1;
+    box-sizing: border-box;
+    min-height: 100vh;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
@@ -126,19 +146,129 @@ header {
     transform: translateY(0);
 }
 
-footer {
-    background-color: #333;
-    color: var(--color-white);
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-}
-
 #content img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
     height: auto;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.card {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--color-dark);
+}
+
+.card-title {
+    font-size: var(--font-size-xlarge);
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-description {
+    font-size: var(--font-size-small);
+    margin: 5px 0 10px;
+}
+
+.card-data {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.card-data-options {
+    margin: 0 0 10px;
+}
+
+.card-data-item {
+    display: flex;
+    align-items: center;
+    margin-top: 1vh;
+    margin-right: 1vw;
+}
+
+.card-data-value {
+    width: 22%;
+    box-sizing: border-box;
+    padding: 6px;
+    font-size: var(--font-size-small);
+    color: #555;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px;
+    outline: none;
+}
+
+.card-data-description {
+    width: 78%;
+    font-size: 13px;
+    margin: 0;
+    margin-left: 1vw;
+}
+
+.card-btns {
+    margin-top: 1vh;
+    text-align: center;
+}
+
+.card-container button,
+.card-btns a {
+    display: inline-block;
+    padding: 10px;
+    background-color: var(--color-dark);
+    border: none;
+    color: var(--color-white);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    font-size: var(--font-size-small);
+}
+
+.card-container button:hover,
+.card-btns a:hover {
+    background-color: var(--color-dark-gray);
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+}
+
+.input-container input[type="text"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 8px;
+    font-size: var(--font-size-small);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+}
+
+.input-container input[type="text"]:hover,
+.input-container input[type="text"]:focus {
+    border-color: var(--color-gray);
+    box-shadow: none;
+}
+
+.input-container input[type="text"]::placeholder {
+    color: #aaa;
+    font-style: italic;
 }
 
 @media (max-width: 768px) {
@@ -158,5 +288,21 @@ footer {
 
     .navbar {
         flex-direction: column;
+    }
+
+    .card {
+        max-width: none;
+    }
+
+    .card-data-item {
+        display: block;
+    }
+
+    .card-data-value, .card-data-description {
+        width: 100%;
+    }
+
+    .card-data-description {
+        margin-top: 1vh;
     }
 }

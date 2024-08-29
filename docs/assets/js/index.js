@@ -53,14 +53,14 @@ const generateSideBar = () => {
                 </ul>` : ''}
         </li>
     `).join('');
-}
+};
 
 const toggleSubmenu = (submenuId) => {
     document.querySelectorAll('.submenu').forEach(submenu => {
         submenu.style.display = submenu.id === submenuId ?
             (submenu.style.display === 'block' ? 'none' : 'block') : 'none';
     });
-}
+};
 
 const handleMenuClick = (button, page, hasSubmenu, submenuId) => {
     document.querySelectorAll('.menu-btn').forEach(btn => btn.removeAttribute('data-active'));
@@ -70,7 +70,7 @@ const handleMenuClick = (button, page, hasSubmenu, submenuId) => {
     } else {
         loadPage(page);
     }
-}
+};
 
 const hideAllSubmenus = () => document.querySelectorAll('.submenu').forEach(submenu => submenu.style.display = 'none');
 
@@ -83,7 +83,7 @@ const loadScript = (scriptSrc, onload, onerror) => {
     script.onerror = onerror;
     document.body.appendChild(script);
     loadedScripts.add(scriptSrc);
-}
+};
 
 const renderPage = (page, content) => {
     const pageContent = window['render']();
