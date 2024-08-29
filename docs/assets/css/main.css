@@ -148,6 +148,7 @@ footer {
 
     .sidebar {
         width: 100%;
+        box-sizing: border-box;
         box-shadow: none;
     }
 
